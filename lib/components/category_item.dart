@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/category.dart';
+import 'package:meals/utils/app_routes.dart';
 
 class CategoryItem extends StatelessWidget {
   final Category category;
@@ -14,7 +15,7 @@ class CategoryItem extends StatelessWidget {
 
 // Trabalhando com rotas nomeadas utilizando método pushNamed()
     Navigator.of(context).pushNamed(
-      '/categories-meals',
+      AppRoutes.CATEGORIES_MEALS,
       arguments: category,
     );
   }
