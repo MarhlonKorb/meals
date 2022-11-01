@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meals/screens/categories-screen.dart';
 import 'package:meals/screens/categories_meals_screen.dart';
 import 'package:meals/screens/meal_detail-screen.dart';
+import 'package:meals/screens/tabs_screen.dart';
 
 import 'utils/app_routes.dart';
 
@@ -23,13 +23,11 @@ class MyApp extends StatelessWidget {
               titleMedium: const TextStyle(
                   fontSize: 20, fontFamily: 'RobotoCondensed'))),
       routes: {
-        AppRoutes.HOME: (context) => const CategoriesScreen(),
+        AppRoutes.HOME: (context) => TabsScreen(),
         AppRoutes.CATEGORIES_MEALS: (context) => const CategoriesMealsScreen(),
         AppRoutes.MEAL_DETAIL: (context) => const MealDetailScreen(),
       },
 
-
-      
 // // Melhor aplicação caso a rota acessada não exista
 //       onUnknownRoute: ((settings) {
 //         return MaterialPageRoute(builder: (_) {
