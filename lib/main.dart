@@ -27,6 +27,9 @@ class MyApp extends StatelessWidget {
         AppRoutes.CATEGORIES_MEALS: (context) => const CategoriesMealsScreen(),
         AppRoutes.MEAL_DETAIL: (context) => const MealDetailScreen(),
       },
+
+
+      
 // // Melhor aplicação caso a rota acessada não exista
 //       onUnknownRoute: ((settings) {
 //         return MaterialPageRoute(builder: (_) {
