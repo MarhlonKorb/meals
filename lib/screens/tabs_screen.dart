@@ -2,35 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:meals/screens/categories-screen.dart';
 import 'package:meals/screens/favorite_screen.dart';
 
-class TabsScreen extends StatelessWidget {
+class TabsScreen extends StatefulWidget {
+  const TabsScreen({super.key});
+
+  @override
+  State<TabsScreen> createState() => _TabsScreenState();
+}
+
+class _TabsScreenState extends State<TabsScreen> {
+  int _selectedScreenIndex = 0;
+
+  /// Map de widgets da BottomNavigationBar
+   final List<Map<String, Object>> _screens = [ 
+    {'title' : 'Lista de Categorias', 'screen' : const CategoriesScreen()},
+    {'title' : 'Meus favoritos', 'screen' : FavoriteScreen()},
+  ];
+
+  /// Método para escutar a mudança de estado da BottomNavigationBar
+  _selectScreen(int index) {
+    setState(() {
+      _selectedScreenIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Vamos cozinhar?'),
-          bottom: const TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(
-                  Icons.category,
-                ),
-                text: 'Categorias',
-              ),
-              Tab(
-                icon: Icon(
-                  Icons.star,
-                ),
-                text: 'Favoritos',
-              ),
-            ],
-          ),
-        ),
-        body: TabBarView(children: [
-          const CategoriesScreen(),
-          FavoriteScreen()
-        ]),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(_screens[_selectedScreenIndex]['title'].toString()),
+      ),
+      body: _screens[_selectedScreenIndex]['screen'] as Widget,
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectScreen,
+        backgroundColor: Theme.of(context).primaryColor,
+        // Configura as cores e qual aba está selecionada de acordo com o _selectedScreenIndex
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        currentIndex: _selectedScreenIndex,
+        // Animação de elevação do ícone ao trocar de um para o outro
+        type: BottomNavigationBarType.shifting,
+        items:  [
+          BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).primaryColor,
+              icon: const Icon(Icons.category), label: 'Categorias'),
+          BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).primaryColor,
+            icon: const Icon(Icons.star), label: 'Favoritos'),
+        ],
       ),
     );
   }
