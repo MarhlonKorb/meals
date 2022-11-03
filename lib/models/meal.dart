@@ -51,6 +51,7 @@ class Meal {
     return 'Difícil';
     default: 'Desconhecida';
   }
+  return null;
   }
   
   String? get  costText{
@@ -63,5 +64,6 @@ class Meal {
     return 'Caro';
     default: 'Desconhecido';
   }
+  return null;
   }
 }
