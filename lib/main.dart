@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/screens/categories_meals_screen.dart';
 import 'package:meals/screens/meal_detail-screen.dart';
+import 'package:meals/screens/settings_screen.dart';
 import 'package:meals/screens/tabs_screen.dart';
 
 import 'utils/app_routes.dart';
@@ -23,9 +24,10 @@ class MyApp extends StatelessWidget {
               titleMedium: const TextStyle(
                   fontSize: 20, fontFamily: 'RobotoCondensed'))),
       routes: {
-        AppRoutes.HOME: (context) => TabsScreen(),
+        AppRoutes.HOME: (context) => const TabsScreen(),
         AppRoutes.CATEGORIES_MEALS: (context) => const CategoriesMealsScreen(),
         AppRoutes.MEAL_DETAIL: (context) => const MealDetailScreen(),
+        AppRoutes.SETTINGS: (context) => const SettingsScreen(),
       },
 
 // // Melhor aplicação caso a rota acessada não exista
