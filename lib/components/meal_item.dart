@@ -10,11 +10,13 @@ class MealItem extends StatelessWidget {
     Navigator.of(context).pushNamed(
       AppRoutes.MEAL_DETAIL,
       arguments: meal,
-    ).then((result) {
-      if(result == null){
-        print( 'Sem resultado');
-      } 
-    });
+    );
+    // Método que aguarda a ação ocorrer pra executar o que estiver dentro dele
+    // .then((result) {
+    //   if(result == null){
+    //     print( 'Sem resultado');
+    //   } 
+    // });
   }
 
   @override
